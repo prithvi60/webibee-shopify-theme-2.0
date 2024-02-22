@@ -4,6 +4,7 @@
     {% comment %} {{ 'theme.css' | asset_url | stylesheet_tag }} {% endcomment %}
     {% comment %} Tailwind CSS Output StyleSheet {% endcomment %}
     {{ 'style.css' | asset_url | stylesheet_tag }}
+    {{'cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css' | stylesheet_tag }} 
   </head>
   <body>
     {% section 'announcement-bar' %}
@@ -15,7 +16,9 @@
 
     {% section 'footer' %}
 
-    {% comment %} {{ 'theme.js' | asset_url  }} {% endcomment %}
-
+    <script src="theme.js" defer></script>
+    {% comment %} <script src="../node_modules/flowbite/dist/flowbite.min.js" defer></script> {% endcomment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js" defer></script> 
+    {% comment %} ../path/to/flowbite/dist/flowbite.min.js {% endcomment %}
   </body>
 </html>

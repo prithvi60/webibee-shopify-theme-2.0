@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  prefix: 'tw-',
+  // prefix: 'tw-',
   content: [
     './layout/*.liquid',
     './templates/*.liquid',
     './templates/customers/*.liquid',
     './sections/*.liquid',
     './snippets/*.liquid',
+    "./node_modules/flowbite/**/*.js"
   ],
   // content: ['./**/*.{liquid,js,json}'],
   theme: {
@@ -28,6 +29,8 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+],
 }
 
