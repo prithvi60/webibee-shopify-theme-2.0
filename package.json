@@ -1,0 +1,18 @@
+{
+  "name": "theme-live",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "shopify theme dev",
+    "tw": "npx tailwindcss -i ./style.css -o ./assets/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.4.3",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.1"
+  }
+}

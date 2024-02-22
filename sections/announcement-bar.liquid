@@ -1,4 +1,4 @@
-{%- if section.settings.show_announcement -%}
+{% comment %} {%- if section.settings.show_announcement -%}
   <section>
     <div class="announcement-bar">
       <div class="announcement-bar-left-section">
@@ -67,10 +67,8 @@
 
   <style>
     .announcement-bar {
-      background: {{ section.settings.background }}
-      ;
-      color: {{ section.settings.text_color }}
-      ;
+      background: {{ section.settings.background }};
+      color: {{ section.settings.text_color }};
     }
   </style>
 
@@ -133,4 +131,4 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %} {% endcomment %}

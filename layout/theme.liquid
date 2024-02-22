@@ -1,9 +1,9 @@
 <html>
   <head>{% render 'pagefly-head' %}
     {{ content_for_header }}
-
-    {{ 'theme.css' | asset_url | stylesheet_tag }}
-
+    {% comment %} {{ 'theme.css' | asset_url | stylesheet_tag }} {% endcomment %}
+    {% comment %} Tailwind CSS Output StyleSheet {% endcomment %}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
   </head>
   <body>
     {% section 'announcement-bar' %}
@@ -15,8 +15,7 @@
 
     {% section 'footer' %}
 
-    {% comment %} {{ 'theme.js' | asset_url | script_tag }} {% endcomment %}
-
+    {% comment %} {{ 'theme.js' | asset_url  }} {% endcomment %}
 
   </body>
 </html>
