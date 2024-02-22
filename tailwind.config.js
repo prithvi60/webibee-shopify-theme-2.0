@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // prefix: 'tw-',
+  darkMode: 'selector',
   content: [
     './layout/*.liquid',
     './templates/*.liquid',
@@ -23,6 +24,8 @@ module.exports = {
       colors:{
         primary: "#FFD400",
         secondary: "#EDF0F5",
+        darkBg: "#282929",
+        darkText : "#Fbfbfb"
       },
       fontFamily : {
         Montserrat: ["Montserrat", "sans-serif"]
@@ -30,7 +33,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    // require('flowbite/plugin')
 ],
 }
 
