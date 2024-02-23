@@ -202,29 +202,84 @@
   </script>
 {% endcomment %}
 
-<header class="h-auto bg-primary w-full">
-  {% comment %} Flowbite navbar {% endcomment %}
+<header>
+  <nav
+    id="header"
+    class="fixed top-0 left-0 transition-all duration-700 ease-in-out translate-y-0 h-auto bg-[var(--color-primary)] w-full font-Montserrat !z-50"
+  >
+    {% comment %} Flowbite navbar {% endcomment %}
 
-  <nav class="bg-primary dark:bg-darkBg font-Montserrat border-b-4 border-slate-800 border-opacity-10 dark:border-yellow-600">
-    <div class="flex justify-between items-center gap-10 max-w-screen px-5 py-4">
-      {% comment %} Hamburger menu {% endcomment %}
-      <div class="flex items-center gap-4">
-        <button
-          type="button"
-          data-drawer-target="drawer-navigation"
-          data-drawer-show="drawer-navigation"
-          aria-controls="drawer-navigation"
-          class="block lg:hidden"
-        >
-          <i class="fa-solid fa-bars text-xl text-black dark:text-primary"></i>
-        </button>
-        <h1 class="font-extrabold font-Montserrat text-3xl dark:text-primary">
-          <a href="/">buyceps</a>
-        </h1>
+    <div class="bg-primary dark:bg-darkBg font-Montserrat border-b-4 border-slate-800 border-opacity-10 dark:border-yellow-600">
+      <div class="flex justify-between items-center gap-10 max-w-screen px-5 py-4">
+        {% comment %} Hamburger menu {% endcomment %}
+        <div class="flex items-center gap-4">
+          <button
+            type="button"
+            data-drawer-target="drawer-navigation"
+            data-drawer-show="drawer-navigation"
+            aria-controls="drawer-navigation"
+            class="block lg:hidden"
+          >
+            <i class="fa-solid fa-bars text-xl text-black dark:text-primary"></i>
+          </button>
+          <h1 class="font-extrabold font-Montserrat text-3xl dark:text-primary">
+            <a href="/">{{ shop.name }}</a>
+          </h1>
+        </div>
+        {% comment %} Search Box {% endcomment %}
+        <div class="lg:flex hidden items-center bg-white rounded-md shadow-sm px-3 py-1 w-[60%]">
+          {% comment %} <img src="{{ 'search.png' | asset_url }}" alt="" width="20" height="20"> {% endcomment %}
+          <i class="fa-solid fa-magnifying-glass text-xl text-black dark:text-primary"></i>
+          <input
+            type="email"
+            name="email"
+            class="px-4 py-1 border-none bg-white  border-slate-300 placeholder-slate-400 focus-within:outline-0 focus:border-0 focus:ring-0 block w-full sm:text-base"
+            placeholder="Search Brands,Products"
+          >
+        </div>
+        <div class="flex items-center space-x-6 rtl:space-x-reverse">
+          <button
+            id="theme-toggle"
+            type="button"
+            class="text-black dark:text-primary hover:shadow-md hover:shadow-slate-900 dark:hover:bg-gray-700 dark:hover:shadow-md dark:hover:shadow-yellow-600 focus:outline-none focus:ring-0 rounded-lg text-sm p-2.5"
+          >
+            <svg
+              id="theme-toggle-dark-icon"
+              class="hidden w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg
+              id="theme-toggle-light-icon"
+              class="hidden w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <a href="/" class="flex items-center gap-2">
+            {% comment %} <img src="{{ 'login-logo.png' | asset_url }}" alt="" width="24" height="24"> {% endcomment %}
+            <i class="fa-solid fa-circle-user text-2xl dark:text-primary"></i>
+            <h3 class="font-Montserrat font-medium dark:text-darkText">Login</h3>
+          </a>
+          <a href="/" class="flex items-center gap-2">
+            {% comment %} <img src="{{ 'add-cart.png' | asset_url }}" alt="" width="26" height="26"> {% endcomment %}
+            <i class="fa-solid fa-cart-plus text-xl dark:text-primary"></i>
+            <h3 class="font-Montserrat font-medium dark:text-darkText">Cart</h3>
+          </a>
+        </div>
       </div>
-      {% comment %} Search Box {% endcomment %}
-      <div class="lg:flex hidden items-center bg-white rounded-md shadow-sm px-3 py-1 w-[60%]">
-        <img src="{{ 'search.png' | asset_url }}" alt="" width="20" height="20">
+    </div>
+    {% comment %}Tablet view Search box {% endcomment %}
+    <div class="lg:hidden block w-full px-10 py-4 dark:bg-darkBg font-Montserrat">
+      <div class="flex items-center bg-white rounded-md shadow-sm px-3 py-1 w-full">
+        {% comment %} <img src="{{ 'search.png' | asset_url }}" alt="" width="20" height="20"> {% endcomment %}
+        <i class="fa-solid fa-magnifying-glass text-xl text-black dark:text-primary"></i>
         <input
           type="email"
           name="email"
@@ -232,72 +287,230 @@
           placeholder="Search Brands,Products"
         >
       </div>
-      <div class="flex items-center space-x-6 rtl:space-x-reverse">
-        <button
-          id="theme-toggle"
-          type="button"
-          class="text-black dark:text-primary hover:shadow-md hover:shadow-slate-900 dark:hover:bg-gray-700 dark:hover:shadow-md dark:hover:shadow-yellow-600 focus:outline-none focus:ring-0 rounded-lg text-sm p-2.5"
-        >
-          <svg
-            id="theme-toggle-dark-icon"
-            class="hidden w-6 h-6"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-          </svg>
-          <svg
-            id="theme-toggle-light-icon"
-            class="hidden w-6 h-6"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-          </svg>
-        </button>
-        <a href="/" class="flex items-center gap-2">
-          {% comment %} <img src="{{ 'login-logo.png' | asset_url }}" alt="" width="24" height="24"> {% endcomment %}
-          <i class="fa-solid fa-circle-user text-2xl dark:text-primary"></i>
-          <h3 class="font-Montserrat font-medium dark:text-darkText">Login</h3>
-        </a>
-        <a href="/" class="flex items-center gap-2">
-          {% comment %} <img src="{{ 'add-cart.png' | asset_url }}" alt="" width="26" height="26"> {% endcomment %}
-          <i class="fa-solid fa-cart-plus text-xl dark:text-primary"></i>
-          <h3 class="font-Montserrat font-medium dark:text-darkText">Cart</h3>
-        </a>
+    </div>
+    {% comment %} Menu Bar {% endcomment %}
+    <div class="hidden lg:block bg-primary dark:bg-darkBg font-Montserrat">
+      <div class="max-w-screen px-12 py-4">
+        <div class="flex items-center">
+          <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+            <li>
+              <div
+                id="dropdownHoverButton"
+                data-dropdown-toggle="dropdownHover"
+                data-dropdown-trigger="click"
+                class="text-black dark:text-darkText font-medium text-sm text-center inline-flex items-center underline cursor-pointer"
+                {% comment %} type="button" {% endcomment %}
+              >
+                Brands
+                <svg
+                  class="w-2.5 h-2.5 ms-3 dark:text-primary"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg>
+              </div>
+
+              <!-- Dropdown menu -->
+              <div
+                id="dropdownHover"
+                class="!z-50 hidden bg-white dark:bg-darkBg divide-y divide-gray-100 rounded-lg shadow w-44 overflow-hidden"
+              >
+                <h3 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white bg-white dark:bg-darkBg">
+                  <a href="/">Gainers</a>
+                </h3>
+                <ul
+                  class="py-2 text-sm text-gray-700 dark:text-darkText bg-white dark:bg-darkBg"
+                  aria-labelledby="dropdownHoverButton"
+                >
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white "
+                      >Dashboard</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white bg-white dark:bg-darkBg"
+                      >Settings</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white bg-white dark:bg-darkBg"
+                      >Earnings</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white bg-white dark:bg-darkBg"
+                      >Sign out</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div
+                id="dropdownHoverButton1"
+                data-dropdown-toggle="dropdownHover1"
+                data-dropdown-trigger="click"
+                class="text-black dark:text-darkText font-medium text-sm text-center inline-flex items-center underline cursor-pointer"
+                {% comment %} type="button" {% endcomment %}
+              >
+                Vitamins & Supplements
+                <svg
+                  class="w-2.5 h-2.5 ms-3 dark:text-primary"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg>
+              </div>
+
+              <!-- Dropdown menu -->
+              <div
+                id="dropdownHover1"
+                class="!z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-darkBg overflow-hidden"
+              >
+                <h3 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white ">
+                  <a href="/">Gainers</a>
+                </h3>
+                <ul class="py-2 text-sm text-gray-700 dark:text-darkText" aria-labelledby="dropdownHoverButton">
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
+                      >Dashboard</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
+                      >Settings</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
+                      >Earnings</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
+                      >Sign out</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div
+                id="dropdownHoverButton2"
+                data-dropdown-toggle="dropdownHover2"
+                data-dropdown-trigger="click"
+                class="text-black dark:text-darkText font-medium text-sm text-center inline-flex items-center underline cursor-pointer"
+                {% comment %} type="button" {% endcomment %}
+              >
+                Sports Nutrition
+                <svg
+                  class="w-2.5 h-2.5 ms-3 dark:text-primary"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg>
+              </div>
+
+              <!-- Dropdown menu -->
+              <div
+                id="dropdownHover2"
+                class="!z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-darkBg overflow-hidden"
+              >
+                <h3 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white ">
+                  <a href="/">Gainers</a>
+                </h3>
+                <ul class="py-2 text-sm text-gray-700 dark:text-darkText" aria-labelledby="dropdownHoverButton">
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
+                      >Dashboard</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
+                      >Settings</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
+                      >Earnings</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
+                      >Sign out</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </nav>
-  {% comment %}Tablet view Search box {% endcomment %}
-  <div class="lg:hidden block w-full px-10 py-4 dark:bg-darkBg">
-    <div class="flex items-center bg-white rounded-md shadow-sm px-3 py-1 w-full">
-      <img src="{{ 'search.png' | asset_url }}" alt="" width="20" height="20">
-      <input
-        type="email"
-        name="email"
-        class="px-4 py-1 border-none bg-white  border-slate-300 placeholder-slate-400 focus-within:outline-0 focus:border-0 focus:ring-0 block w-full sm:text-base"
-        placeholder="Search Brands,Products"
+    {% comment %} Drawer {% endcomment %}
+    <!-- drawer component -->
+    <div
+      id="drawer-navigation"
+      class="fixed top-0 left-0 z-40 h-screen overflow-y-auto transition-transform -translate-x-full bg-primary drawer-container dark:bg-darkBg mb-5"
+      tabindex="-1"
+      aria-labelledby="drawer-navigation-label"
+    >
+      <h5 id="drawer-navigation-label" class="text-base font-semibold uppercase text-black dark:text-darkText p-4">
+        Menu
+      </h5>
+      <button
+        type="button"
+        data-drawer-hide="drawer-navigation"
+        aria-controls="drawer-navigation"
+        class="bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
       >
-    </div>
-  </div>
-  {% comment %} Menu Bar {% endcomment %}
-  <div class="hidden lg:block bg-primary dark:bg-darkBg font-Montserrat">
-    <div class="max-w-screen px-12 py-4">
-      <div class="flex items-center">
-        <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
-          <li>
-            <div
-              id="dropdownHoverButton"
-              data-dropdown-toggle="dropdownHover"
-              data-dropdown-trigger="click"
-              class="text-black dark:text-darkText font-medium text-sm text-center inline-flex items-center underline cursor-pointer"
-              {% comment %} type="button" {% endcomment %}
+        <svg
+          class="w-5 h-5 text-black dark:text-primary"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 14"
+        >
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+        </svg>
+        <span class="sr-only">Close menu</span>
+      </button>
+      <div class="py-4 overflow-y-auto">
+        <ul class="space-y-2 font-medium overflow-hidden">
+          <li class=" px-4">
+            <button
+              type="button"
+              class="flex items-center w-full p-2 text-base text-black transition duration-75 rounded-lg group dark:text-darkText"
+              aria-controls="dropdown-1"
+              data-collapse-toggle="dropdown-1"
             >
-              Brands
               <svg
-                class="w-2.5 h-2.5 ms-3 dark:text-primary"
+                class="flex-shrink-0 w-5 h-5 text-black transition duration-75 group-hover:text-gray-900 dark:text-primary dark:group-hover:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 18 21"
+              >
+                <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
+              </svg>
+              <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Brands</span>
+              <svg
+                class="w-3 h-3 text-black dark:text-primary"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -305,321 +518,171 @@
               >
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
               </svg>
-            </div>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownHover"
-              class="z-10 hidden bg-white dark:bg-darkBg divide-y divide-gray-100 rounded-lg shadow w-44  overflow-hidden"
-            >
-              <h3 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white bg-white dark:bg-darkBg">
-                <a href="/">Gainers</a>
-              </h3>
-              <ul class="py-2 text-sm text-gray-700 dark:text-darkText bg-white dark:bg-darkBg" aria-labelledby="dropdownHoverButton">
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white "
-                    >Dashboard</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white bg-white dark:bg-darkBg"
-                    >Settings</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white bg-white dark:bg-darkBg"
-                    >Earnings</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white bg-white dark:bg-darkBg"
-                    >Sign out</a
-                  >
-                </li>
-              </ul>
-            </div>
+            </button>
+            <ul id="dropdown-1" class="hidden space-y-5 mb-4">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center w-full p-2 text-gray-900 transition duration-75 pl-14 group dark:text-white  border-b border-[#B19111] mx-8"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center w-full p-2 text-gray-900 transition duration-75 pl-14 group dark:text-white  border-b border-[#B19111] mx-8"
+                  >Billing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center w-full p-2 text-gray-900 transition duration-75 pl-14 group dark:text-white  border-b border-[#B19111] mx-8"
+                  >Invoice</a
+                >
+              </li>
+            </ul>
           </li>
           <li>
-            <div
-              id="dropdownHoverButton1"
-              data-dropdown-toggle="dropdownHover1"
-              data-dropdown-trigger="click"
-              class="text-black dark:text-darkText font-medium text-sm text-center inline-flex items-center underline cursor-pointer"
-              {% comment %} type="button" {% endcomment %}
-            >
-              Vitamins & Supplements
-              <svg
-                class="w-2.5 h-2.5 ms-3 dark:text-primary"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
+            <div class="bg-[#99820c] dark:bg-primary/25 px-4">
+              <button
+                type="button"
+                class="flex items-center w-full p-2 text-base text-black transition duration-75 group dark:text-darkText "
+                aria-controls="dropdown-2"
+                data-collapse-toggle="dropdown-2"
               >
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-              </svg>
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-black transition duration-75 group-hover:text-gray-900 dark:text-primary dark:group-hover:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 18 21"
+                >
+                  <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
+                </svg>
+                <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Vitamins & Supplements </span>
+                <svg
+                  class="w-3 h-3 text-black dark:text-primary"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg>
+              </button>
             </div>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownHover1"
-              class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-darkBg overflow-hidden"
-            >
-              <h3 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white ">
-                <a href="/">Gainers</a>
-              </h3>
-              <ul class="py-2 text-sm text-gray-700 dark:text-darkText" aria-labelledby="dropdownHoverButton">
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
-                    >Dashboard</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
-                    >Settings</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
-                    >Earnings</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
-                    >Sign out</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div
-              id="dropdownHoverButton2"
-              data-dropdown-toggle="dropdownHover2"
-              data-dropdown-trigger="click"
-              class="text-black dark:text-darkText font-medium text-sm text-center inline-flex items-center underline cursor-pointer"
-              {% comment %} type="button" {% endcomment %}
-            >
-              Sports Nutrition
-              <svg
-                class="w-2.5 h-2.5 ms-3 dark:text-primary"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
-              >
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-              </svg>
-            </div>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownHover2"
-              class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-darkBg overflow-hidden"
-            >
-              <h3 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white ">
-                <a href="/">Gainers</a>
-              </h3>
-              <ul class="py-2 text-sm text-gray-700 dark:text-darkText" aria-labelledby="dropdownHoverButton">
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
-                    >Dashboard</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
-                    >Settings</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
-                    >Earnings</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-darkBg dark:hover:text-white"
-                    >Sign out</a
-                  >
-                </li>
-              </ul>
-            </div>
+            <ul id="dropdown-2" class="hidden py-2 space-y-5 bg-primary dark:bg-transparent mb-4">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center w-full p-2 text-gray-900 transition duration-75 pl-14 group dark:text-white  border-b border-[#B19111] mx-8"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center w-full p-2 text-gray-900 transition duration-75 pl-14 group dark:text-white  border-b border-[#B19111] mx-8"
+                  >Billing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center w-full p-2 text-gray-900 transition duration-75 pl-14 group dark:text-white  border-b border-[#B19111] mx-8"
+                  >Invoice</a
+                >
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
     </div>
-  </div>
-  {% comment %} Drawer {% endcomment %}
-  <!-- drawer component -->
-  <div
-    id="drawer-navigation"
-    class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-primary drawer-container dark:bg-darkBg mb-5"
-    tabindex="-1"
-    aria-labelledby="drawer-navigation-label"
-  >
-    <h5 id="drawer-navigation-label" class="text-base font-semibold uppercase text-black dark:text-darkText">Menu</h5>
-    <button
-      type="button"
-      data-drawer-hide="drawer-navigation"
-      aria-controls="drawer-navigation"
-      class="bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
-    >
-      <svg
-        class="w-5 h-5 text-black dark:text-primary"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 14 14"
-      >
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-      </svg>
-      <span class="sr-only">Close menu</span>
-    </button>
-    <div class="py-4 overflow-y-auto">
-      <ul class="space-y-2 font-medium">
-        <li>
-          <button
-            type="button"
-            class="flex items-center w-full p-2 text-base text-black transition duration-75 rounded-lg group hover:bg-yellow-600 dark:text-darkText dark:hover:bg-yellow-600"
-            aria-controls="dropdown-1"
-            data-collapse-toggle="dropdown-1"
-          >
-            <svg
-              class="flex-shrink-0 w-5 h-5 text-black transition duration-75 group-hover:text-gray-900 dark:text-primary dark:group-hover:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 18 21"
-            >
-              <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
-            </svg>
-            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Brands</span>
-            <svg class="w-3 h-3 text-black dark:text-primary" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-            </svg>
-          </button>
-          <ul id="dropdown-1" class="hidden py-2 space-y-2">
-            <li>
-              <a
-                href="#"
-                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-yellow-600 dark:text-white dark:hover:bg-yellow-600 border-b-2 border-black"
-                >Products</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-yellow-600 dark:text-white dark:hover:bg-yellow-600 border-b-2 border-black"
-                >Billing</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-yellow-600 dark:text-white dark:hover:bg-yellow-600 border-b-2 border-black"
-                >Invoice</a
-              >
-            </li>
-          </ul>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="flex items-center w-full p-2 text-base text-black transition duration-75 rounded-lg group hover:bg-yellow-600 dark:text-darkText dark:hover:bg-yellow-600"
-            aria-controls="dropdown-2"
-            data-collapse-toggle="dropdown-2"
-          >
-            <svg
-              class="flex-shrink-0 w-5 h-5 text-black transition duration-75 group-hover:text-gray-900 dark:text-primary dark:group-hover:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 18 21"
-            >
-              <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
-            </svg>
-            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Vitamins & Supplements
-          </span>
-            <svg class="w-3 h-3 text-black dark:text-primary" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-            </svg>
-          </button>
-          <ul id="dropdown-2" class="hidden py-2 space-y-2">
-            <li>
-              <a
-                href="#"
-                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-yellow-600 dark:text-white dark:hover:bg-yellow-600 border-b-2 border-black"
-                >Products</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-yellow-600 dark:text-white dark:hover:bg-yellow-600 border-b-2 border-black"
-                >Billing</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-yellow-600 dark:text-white dark:hover:bg-yellow-600 border-b-2 border-black"
-                >Invoice</a
-              >
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
+  </nav>
 </header>
 
 {% comment %} Scroll Back to Top {% endcomment %}
 
-<div id="go-back-top" class="fixed left-4 bottom-5 z-30 hidden scroll-smooth">
+<div id="go-back-top" class="fixed left-4 bottom-5 !z-50 hidden scroll-smooth">
   <div class=" rounded-full bg-black dark:bg-primary cursor-pointer">
     <i class="fa-regular fa-circle-up  lg:text-6xl text-4xl text-primary dark:text-black"></i>
   </div>
 </div>
 
-<script>
-  var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-  var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-  // Change the icons inside the button based on previous settings
-  if (
-    localStorage.getItem('color-theme') === 'dark' ||
-    (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    themeToggleLightIcon.classList.remove('hidden');
-  } else {
-    themeToggleDarkIcon.classList.remove('hidden');
+<style>
+  :root {
+    --color-primary: #f5f5f5;
   }
+  </style>
 
-  var themeToggleBtn = document.getElementById('theme-toggle');
+  <script>
+    console.log(var(--color-primary))
+  </script>
+{% comment %}
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-  themeToggleBtn.addEventListener('click', function () {
-    // toggle icons inside button
-    themeToggleDarkIcon.classList.toggle('hidden');
-    themeToggleLightIcon.classList.toggle('hidden');
-
-    // if set via local storage previously
-    if (localStorage.getItem('color-theme')) {
-      if (localStorage.getItem('color-theme') === 'light') {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('color-theme', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('color-theme', 'light');
-      }
-
-      // if NOT set via local storage previously
+    // Change the icons inside the button based on previous settings
+    if (
+      localStorage.getItem('color-theme') === 'dark' ||
+      (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      themeToggleLightIcon.classList.remove('hidden');
     } else {
-      if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('color-theme', 'light');
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('color-theme', 'dark');
-      }
+      themeToggleDarkIcon.classList.remove('hidden');
     }
-  });
 
-</script>
+    var themeToggleBtn = document.getElementById('theme-toggle');
+
+    themeToggleBtn.addEventListener('click', function () {
+      // toggle icons inside button
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      // if set via local storage previously
+      if (localStorage.getItem('color-theme')) {
+        if (localStorage.getItem('color-theme') === 'light') {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        }
+
+        // if NOT set via local storage previously
+      } else {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+        }
+      }
+    });
+
+    //JS for Back to top btn
+
+      const backToTop = document.querySelector('#go-back-top');
+
+      window.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+        if (scrollPosition > 200) {
+          backToTop.classList.remove('hidden');
+        } else {
+          backToTop.classList.add('hidden');
+        }
+      });
+
+      backToTop.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      });
+    });
+  </script>
+{% endcomment %}

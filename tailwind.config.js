@@ -25,7 +25,8 @@ module.exports = {
         primary: "#FFD400",
         secondary: "#EDF0F5",
         darkBg: "#282929",
-        darkText : "#Fbfbfb"
+        darkText : "#Fbfbfb",
+        info: "#833471"
       },
       fontFamily : {
         Montserrat: ["Montserrat", "sans-serif"]

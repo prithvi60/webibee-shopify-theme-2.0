@@ -3,6 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    
+    --color-primary: #FFD400;
+    /* --color-secondary: ; */
+    /* ... */
+  }
+}
+
 @layer utilities {
   .drawer-container {
     width: calc(100vw - 60%);

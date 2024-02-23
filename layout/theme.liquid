@@ -1,13 +1,12 @@
 <html>
   <head>{% render 'pagefly-head' %}
     {{ content_for_header }}
-    {% comment %} {{ 'theme.css' | asset_url | stylesheet_tag }} {% endcomment %}
     {% comment %} Tailwind CSS Output StyleSheet {% endcomment %}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{"//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" | stylesheet_tag}}
     {{'//cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css' | stylesheet_tag }} 
     <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
       if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
           document.documentElement.classList.add('dark');
       } else {
@@ -18,7 +17,7 @@
   <body>
     {% section 'announcement-bar' %}
     {% section 'header' %}
-
+    
     <main id="main" role="main">
       {{ content_for_layout }}
     </main>
@@ -26,6 +25,8 @@
     {% section 'footer' %}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js" defer></script> 
-    <script src="../assets/theme.js" defer></script>
+    <script src="{{ 'scrollreveal.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+    {% comment %} <script src="../assets/" defer></script> {% endcomment %}
   </body>
 </html>

@@ -1,4 +1,4 @@
-<section class="all-products">
+{% comment %} <section class="all-products">
   <h1>{{ collections['air-force'].title }}</h1>
   <div class="product-container">
     <div class="all-products-wrapper">
@@ -15,9 +15,9 @@
       {% endfor %}
     </div>
   </div>
-</section>
+</section> {% endcomment %}
 
-<style>
+{% comment %} <style>
   .all-products {
     background: {{ section.settings.background }}
     ;
@@ -55,7 +55,7 @@
     .product-card a:hover {
       text-decoration: underline;
     }
-</style>
+</style> {% endcomment %}
 
 {% comment %}
   <script>

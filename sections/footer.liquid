@@ -1,138 +1,225 @@
-<footer class="footer-main">
-  <div class="footer-sec-1">
-    {%- if section.blocks.size == 0 -%}
-      <div>
-        <p>Guides</p>
-        <p>Terms of Sale</p>
-        <p>Terms of Use</p>
-        <p>Privacy Policy</p>
-        <p>Guides</p>
-        <p>Terms of Sale</p>
-      </div>
-      <div>
-        <p>Guides</p>
-        <p>Terms of Sale</p>
-        <p>Terms of Use</p>
-        <p>Privacy Policy</p>
-        <p>Guides</p>
-        <p>Terms of Sale</p>
-      </div>
-      <div>
-        <p>Guides</p>
-        <p>Terms of Sale</p>
-        <p>Terms of Use</p>
-        <p>Privacy Policy</p>
-        <p>Guides</p>
-        <p>Terms of Sale</p>
-      </div>
-
-      <div>
-        <p>Guides</p>
-        <p>Terms of Sale</p>
-        <p>Terms of Use</p>
-        <p>Privacy Policy</p>
-        <p>Guides</p>
-        <p>Terms of Sale</p>
-      </div>
-
-    {% else %}
-      {% comment %}
+{% comment %}
+  <footer class="footer-main">
+    <div class="footer-sec-1">
+      {%- if section.blocks.size == 0 -%}
         <div>
-          {% for block in section.blocks %}
+          <p>Guides</p>
+          <p>Terms of Sale</p>
+          <p>Terms of Use</p>
+          <p>Privacy Policy</p>
+          <p>Guides</p>
+          <p>Terms of Sale</p>
+        </div>
+        <div>
+          <p>Guides</p>
+          <p>Terms of Sale</p>
+          <p>Terms of Use</p>
+          <p>Privacy Policy</p>
+          <p>Guides</p>
+          <p>Terms of Sale</p>
+        </div>
+        <div>
+          <p>Guides</p>
+          <p>Terms of Sale</p>
+          <p>Terms of Use</p>
+          <p>Privacy Policy</p>
+          <p>Guides</p>
+          <p>Terms of Sale</p>
+        </div>
+
+        <div>
+          <p>Guides</p>
+          <p>Terms of Sale</p>
+          <p>Terms of Use</p>
+          <p>Privacy Policy</p>
+          <p>Guides</p>
+          <p>Terms of Sale</p>
+        </div>
+
+      {% else %}
+        {% comment %}
+          <div>
+            {% for block in section.blocks %}
+              <li>
+                <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
+              </li>
+            {% endfor %}
+          </div>
+        {% endcomment %}
+        {% for block in section.blocks %}
+          <div>
             <li>
               <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
             </li>
-          {% endfor %}
+            <li>
+              <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
+            </li>
+            <li>
+              <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
+            </li>
+            <li>
+              <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
+            </li>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="footer-sec-2">
+      <p>Guides</p>
+      <p>Terms of Sale</p>
+      <p>Terms of Use</p>
+      <p>Privacy Policy</p>
+    </div>
+  </footer>
+{% endcomment %}
+
+{% comment %}
+  <style>
+    .footer-main {
+      background: {{ section.settings.background }}
+      ;
+      color: {{ section.settings.text_color }}
+      ;
+      padding: 10px;
+    }
+    .footer-sec-1 {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .footer-sec-2 {
+      display: flex;
+    }
+    .footer-sec-2 p {
+      padding: 10px
+    }
+  </style>
+{% endcomment %}
+
+{% comment %}
+  {% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background",
+        "label": "Background",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text",
+        "default": "#F4F4F4"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Links",
+        "type": "links",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "link"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "footer"
+      }
+    ]
+  }
+  {% endschema %}
+{% endcomment %}
+
+<footer class="bg-[#101114] dark:bg-secondary !text-white dark:!text-black font-Montserrat">
+  <div class="mx-auto w-full max-w-screen-lg p-4 py-6 lg:py-8 ">
+    <div class="md:flex md:gap-10">
+      <div class="space-y-10 md:space-y-20 basis-2/5 ">
+        <div class="space-y-5">
+          <a href="#" class="block">
+            {% comment %} <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" /> {% endcomment %}
+            <h2 class="self-center text-3xl md:text-4xl font-semibold whitespace-nowrap dark:text-black mb-1 text-primary">
+              buyceps
+            </h2>
+            <p class="self-center text-xs font-semibold whitespace-nowrap !text-white dark:!text-black capitalize">
+              powering your fitness
+            </p>
+          </a>
+          <p class="text-sm !text-white dark:!text-black">
+            Shop no. 3, Building no. 25, Oshiwara Linkway CHSL, New Link Road Extension, Oshiwara, Andheri West, Mumbai,
+            Maharashtra-400053, India
+          </p>
         </div>
-      {% endcomment %}
-      {% for block in section.blocks %}
         <div>
-          <li>
-            <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
-          </li>
-          <li>
-            <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
-          </li>
-          <li>
-            <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
-          </li>
-          <li>
-            <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
-          </li>
+          <p class="text-sm !text-white dark:!text-black">Ph: 7004090151</p>
+          <p class="text-sm !text-white dark:!text-black">Email: hello@buyceps.com</p>
         </div>
-      {% endfor %}
-    {% endif %}
-  </div>
-  <div class="footer-sec-2">
-    <p>Guides</p>
-    <p>Terms of Sale</p>
-    <p>Terms of Use</p>
-    <p>Privacy Policy</p>
+      </div>
+      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+        <div>
+          <h2 class="mb-6 text-sm font-semibold capitalize !text-white dark:!text-black">company</h2>
+          <ul class="!text-white dark:!text-black font-medium capitalize">
+            <li class="mb-4">
+              <a href="https://flowbite.com/" class="hover:underline">aboutus</a>
+            </li>
+            <li>
+              <a href="https://tailwindcss.com/" class="hover:underline">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold capitalize !text-white dark:!text-black">Products</h2>
+          <ul class="!text-white dark:!text-black font-medium capitalize">
+            <li class="mb-4">
+              <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Fat Loss</a>
+            </li>
+            <li>
+              <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Pre Workout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr class="my-6 border-[#3C3C40] sm:mx-auto dark:border-gray-700 lg:my-8">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <div class="flex items-center gap-8">
+        <div class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
+          >© 2024 <a href="https://flowbite.com/" class="hover:underline">webibee</a>. All Rights Reserved.
+        </div>
+        <div class="flex mt-4 sm:justify-center sm:mt-0">
+          <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+            <i class="fa-brands fa-square-facebook text-base"></i>
+            <span class="sr-only">Facebook page</span>
+          </a>
+          <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+            <i class="fa-brands fa-square-instagram text-base"></i>
+            <span class="sr-only">instagaram community</span>
+          </a>
+          <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+            <i class="fa-brands fa-x-twitter text-base"></i>
+            <span class="sr-only">Twitter page</span>
+          </a>
+          <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+            <i class="fa-brands fa-square-whatsapp text-base"></i>
+            <span class="sr-only">whatsapp community</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <a href="#" class="text-sm text-gray-500 sm:text-center dark:text-gray-400">Privacy Policy</a>
+      </div>
+    </div>
   </div>
 </footer>
-
-<style>
-  .footer-main {
-    background: {{ section.settings.background }}
-    ;
-    color: {{ section.settings.text_color }}
-    ;
-    padding: 10px;
-  }
-  .footer-sec-1 {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .footer-sec-2 {
-    display: flex;
-  }
-  .footer-sec-2 p {
-    padding: 10px
-  }
-</style>
-
-{% schema %}
-{
-  "name": "Footer",
-  "settings": [
-    {
-      "type": "color",
-      "id": "background",
-      "label": "Background",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text",
-      "default": "#F4F4F4"
-    }
-  ],
-  "blocks": [
-    {
-      "name": "Links",
-      "type": "links",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text",
-          "default": "link"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "footer"
-    }
-  ]
-}
-{% endschema %}

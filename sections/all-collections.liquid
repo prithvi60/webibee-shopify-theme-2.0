@@ -1,4 +1,4 @@
-<section class="all-collections">
+{% comment %} <section class="all-collections">
   <h1>Featured Collections</h1>
   <div class="collection-container">
     <div class="all-collections-wrapper">
@@ -22,9 +22,9 @@
       </div>
     {% endcomment %}
   </div>
-</section>
+</section> {% endcomment %}
 
-<style>
+{% comment %} <style>
   .all-collections {
     background: {{ section.settings.background }}
     ;
@@ -60,9 +60,9 @@
   .collection-card a:hover {
     text-decoration: underline;
   }
-</style>
+</style> {% endcomment %}
 
-<script>
+{% comment %} <script>
   document.addEventListener('DOMContentLoaded', function () {
     const wrapper = document.querySelector('.all-collections-wrapper');
     const scrollLeftButton = document.querySelector('.scroll-left');
@@ -82,9 +82,9 @@
       });
     });
   });
-</script>
+</script> {% endcomment %}
 
-{% schema %}
+{% comment %} {% schema %}
 {
   "name": "all-collections",
   "settings": [
@@ -107,4 +107,4 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %} {% endcomment %}
